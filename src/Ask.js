@@ -41,7 +41,34 @@ class Ask extends Component {
       .catch(console.log)
   }
 
-
+  getNextPage(first,last){
+    runningIndex = first + 30;
+    // i = runningIndex;
+    fetch('https://hacker-news.firebaseio.com/v0/askstories.json')
+    .then(res => res.json())
+    .then((data) => {
+      lastIndex = data.length;
+      data = data.slice(first, last);
+      var dataLen = data.length;
+      data.forEach(data => {
+        fetch(`https://hacker-news.firebaseio.com/v0/item/${data}.json`)
+          .then(res => res.json())
+          .then((story) => {
+            story = JSON.stringify(story)
+            storiesArr.push(story)
+            if (mutableStoriesArr.length >= dataLen) {
+              console.log('inside if')
+              mutableStoriesArr = [];
+            }
+            mutableStoriesArr.push(story)
+            this.setState({ stories: storiesArr })
+            console.log(mutableStoriesArr)
+            // this.setState({stories: JSON.parse(this.storiesArr)})
+          })
+      })
+    })
+    .catch(console.log)
+  }
 
   render() {
     return (
