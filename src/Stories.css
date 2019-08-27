@@ -1,0 +1,12 @@
+.wrapper {
+  /* justify-content: center; */
+  /* text-align: center;  */
+  /* margin: 0 auto;
+  background-color: tomato; */
+  max-width: 1206px;
+  height: auto;
+}
+
+.para{
+  display: inline;
+}
