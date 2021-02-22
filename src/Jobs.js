@@ -73,6 +73,7 @@ class Jobs extends Component {
   render() {
     const datamap =
       mutableStoriesArr && mutableStoriesArr.map((i) => JSON.parse(i));
+      console.log(datamap);
     return (
       <div>
         <div class="pa4">
@@ -96,7 +97,7 @@ class Jobs extends Component {
                             )}
                           </b>
                         </span>
-                        {data.title && (
+                        {data && data.title && (
                           <p className="para">
                             <b>{data.title} </b>
                           </p>
