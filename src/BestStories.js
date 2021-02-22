@@ -70,7 +70,10 @@ class BestStories extends Component {
       .catch(console.log)
   }
 
+  
+
   render() {
+
     return (
       <div>
         <div class="pa4">
